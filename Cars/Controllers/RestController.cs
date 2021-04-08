@@ -1,4 +1,5 @@
 ﻿using Cars.Model;
+using Cars.Repo;
 using Cars.Service;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,18 +14,23 @@ namespace Cars.Controllers
 	[Route("cars")]
 	public class RestController : ControllerBase
 	{
-		private readonly CarService carService;
+		private readonly ICarService carService;
 
-		public RestController()
+		public RestController(ICarService carService)
 		{
-			carService = new();
+			this.carService = carService;
 		}
-		
+
 		[HttpGet]
 		public IEnumerable<Car> getAllCars()
-        {
-			var cars = carService.getAllCars();
-			return cars;
+		{
+			return carService.GetAllCars();
+		}
+
+		[HttpGet("{id}")]
+		public ActionResult<Car> GetCarById(Guid id)
+		{
+			return carService.GetCarById(id);
 		}
 	}
 }

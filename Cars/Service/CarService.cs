@@ -1,5 +1,6 @@
 ﻿using Cars.Model;
 using Cars.Repo;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 
@@ -8,17 +9,36 @@ using System.Collections.Generic;
 /// </summary>
 namespace Cars.Service
 {
-	public class CarService
-	{
-		private FakeCarsDao fakeCarsDao;
-		public CarService()
-		{
-			fakeCarsDao = new();
-		}
-
-		public IEnumerable<Car> getAllCars()
+    public class CarService : ICarService
+    {
+        private readonly ICarsDao carsDao;
+        public CarService(ICarsDao carsDao)
         {
-			return fakeCarsDao.getAllCars();
+            this.carsDao = carsDao;
         }
-	}
+
+        public IEnumerable<Car> GetAllCars()
+        {
+            return carsDao.GetAllCars();
+        }
+
+        public ActionResult<Car> GetCarById(Guid id)
+        {
+            return carsDao.GetCarById(id);
+        }
+        public Car AddCar(CarInput carInput)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ActionResult<Car> EditCarById(Guid id, CarInput carInput)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ActionResult<Car> DeleteCarById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
