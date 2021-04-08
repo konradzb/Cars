@@ -6,17 +6,17 @@ using System;
 using System.Collections.Generic;
 
 /// <summary>
-/// Summary description for Class1
+/// 
 /// </summary>
 namespace Cars.Controllers
 {
 	[ApiController]
 	[Route("cars")]
-	public class RestController : ControllerBase
+	public class CarRestController : ControllerBase
 	{
 		private readonly ICarService carService;
 
-		public RestController(ICarService carService)
+		public CarRestController(ICarService carService)
 		{
 			this.carService = carService;
 		}
@@ -30,7 +30,14 @@ namespace Cars.Controllers
 		[HttpGet("{id}")]
 		public ActionResult<Car> GetCarById(Guid id)
 		{
-			return carService.GetCarById(id);
+			var car =  carService.GetCarById(id);
+
+			if (car == null)
+            {
+				return NotFound();
+            }
+			return car;
 		}
+
 	}
 }

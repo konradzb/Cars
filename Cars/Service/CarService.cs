@@ -11,8 +11,8 @@ namespace Cars.Service
 {
     public class CarService : ICarService
     {
-        private readonly ICarsDao carsDao;
-        public CarService(ICarsDao carsDao)
+        private readonly ICarDao carsDao;
+        public CarService(ICarDao carsDao)
         {
             this.carsDao = carsDao;
         }

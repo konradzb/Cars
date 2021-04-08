@@ -29,7 +29,7 @@ namespace Cars
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ICarService, CarService>();
-            services.AddSingleton<ICarsDao, FakeCarsDao>();
+            services.AddSingleton<ICarDao, FakeCarDao>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

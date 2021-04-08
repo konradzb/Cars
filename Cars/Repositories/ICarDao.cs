@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Cars.Repo
 {
-    public interface ICarsDao
+    public interface ICarDao
     {
         IEnumerable<Car> GetAllCars();
         Car GetCarById(Guid id);
