@@ -1,20 +1,28 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace Cars.Dtos 
+
+namespace Cars.Dtos
 {
-    public class CarDto
+    public record CarInputDto
     {
-        public int Id { get; init; }
+        [Required]
+        [Range(0,4999999)]
         public int Mileage { get; set; }
+        [Required]
         public string Color { get; set; }
+        [Required]
         public string Generation { get; set; }
+        [Required]
         public DateTime ProductionDate { get; set; }
+        [Required]
         public bool IsAvailable { get; set; }
+        [Required]
+        [Range(1, 3)]
         public int IdFuelType { get; set; }
 
-        public CarDto(int id, int mileage, string color, string generation, DateTime productionDate, bool isAvailable, int idFuelType)
+        public CarInputDto(int mileage, string color, string generation, DateTime productionDate, bool isAvailable, int idFuelType)
         {
-            Id = id;
             Mileage = mileage;
             Color = color;
             Generation = generation;
@@ -24,3 +32,4 @@ namespace Cars.Dtos
         }
     }
 }
+

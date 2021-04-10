@@ -10,7 +10,7 @@ namespace Cars.Service
     {
         CarDto AddCar(CarInputDto carInput);
         ActionResult<CarDto> DeleteCarById(int id);
-        ActionResult<CarDto> EditCarById(int id, CarInputDto carInput);
+        ActionResult<CarDto> EditCarById(int id, CarEditDto carInput);
         IEnumerable<CarDto> GetAllCars();
         ActionResult<CarDto> GetCarById(int id);
     }

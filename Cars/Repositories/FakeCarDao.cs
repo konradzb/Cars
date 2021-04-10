@@ -30,30 +30,24 @@ namespace Cars.Repo
             return cars.Find(car => car.Id == id);
         }
 
-        public Car AddCar(CarInputDto carInput)
+        public Car AddCar(Car car)
         {
-            i++;
-            Car car = new Car(
-                    i,
-                    carInput.Mileage,
-                    carInput.Color,
-                    carInput.Generation,
-                    carInput.ProductionDate,
-                    carInput.IsAvailable,
-                    carInput.IdFuelType
-                );
             cars.Add(car);
             return car;
         }
 
         public Car DeleteCarById(int id)
         {
-            throw new NotImplementedException();
+            var carToDelete = GetCarById(id);
+            cars.Remove(carToDelete);
+            return carToDelete;
         }
 
-        public Car EditCarById(int id, CarInputDto carInput)
+        public Car EditCarById(Car car)
         {
-            throw new NotImplementedException();
+            int index = cars.FindIndex(carToEdit => carToEdit.Id == car.Id);
+            cars[index] = car;
+            return car;
         }
     }
 }

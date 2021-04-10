@@ -44,9 +44,32 @@ namespace Cars.Controllers
         {
 			CarDto car = carService.AddCar(carInput);
 
-			// It works fine, without this, but in b
-			return car;
-			//return CreatedAtAction(nameof(GetCarById), new { id = car.Id }, car);
+			// It adds a 'location' header in to HTTP resposne, with a link to the object
+			return CreatedAtAction(nameof(GetCarById), new { id = car.Id }, car);
         }
+
+		[HttpPut("{id}")]
+		public ActionResult<CarDto> EditCarById(int id, CarEditDto carEditDto)
+        {
+			var car = carService.EditCarById(id, carEditDto);
+			if (car == null)
+			{
+				return NotFound();
+			}
+
+			return CreatedAtAction(nameof(GetCarById), new { id = id }, car);
+		}
+
+		[HttpDelete("{id}")]
+		public ActionResult<CarDto> DeleteCarById(int id)
+        {
+			var car = carService.DeleteCarById(id);
+			if (car == null)
+			{
+				return NotFound();
+			}
+
+			return car;
+		}
 	}
 }

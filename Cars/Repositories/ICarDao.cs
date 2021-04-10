@@ -10,8 +10,8 @@ namespace Cars.Repo
     {
         List<Car> GetAllCars();
         Car GetCarById(int id);
-        Car AddCar(CarInputDto carInput);
-        Car EditCarById(int id, CarInputDto carInput);
+        Car AddCar(Car car);
+        Car EditCarById(Car car);
         Car DeleteCarById(int id);
 
     }

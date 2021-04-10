@@ -2,7 +2,7 @@
 
 namespace Cars.Model
 {
-	public class Car
+	public record Car
 	{
 		public int Id { get; init; }
 		public int Mileage { get; set; }

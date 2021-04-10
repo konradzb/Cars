@@ -1,10 +1,10 @@
 using System;
 
-namespace Cars.Dtos
-
+namespace Cars.Dtos 
 {
-    public class CarInputDto
+    public record CarDto
     {
+        public int Id { get; init; }
         public int Mileage { get; set; }
         public string Color { get; set; }
         public string Generation { get; set; }
@@ -12,8 +12,9 @@ namespace Cars.Dtos
         public bool IsAvailable { get; set; }
         public int IdFuelType { get; set; }
 
-        public CarInputDto(int mileage, string color, string generation, DateTime productionDate, bool isAvailable, int idFuelType)
+        public CarDto(int id, int mileage, string color, string generation, DateTime productionDate, bool isAvailable, int idFuelType)
         {
+            Id = id;
             Mileage = mileage;
             Color = color;
             Generation = generation;
@@ -23,4 +24,3 @@ namespace Cars.Dtos
         }
     }
 }
-

@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 
 /// <summary>
-/// Summary description for Class1
+/// Cars
 /// </summary>
 namespace Cars.Service
 {
@@ -37,17 +37,54 @@ namespace Cars.Service
 
         public CarDto AddCar(CarInputDto carInput)
         {
-            return carsDao.AddCar(carInput).AsDto();
+            //this is just a temporary ID, because it cannot be null,
+            //after implementing mySQL server, the ID will be auto generated
+            //We can also consider creating second constructor with no ID property
+            int id = 0;
+            Car car = new Car(
+                   id,
+                   carInput.Mileage,
+                   carInput.Color,
+                   carInput.Generation,
+                   carInput.ProductionDate,
+                   carInput.IsAvailable,
+                   carInput.IdFuelType
+               );
+            return carsDao.AddCar(car).AsDto();
         }
 
         public ActionResult<CarDto> DeleteCarById(int id)
         {
-            throw new NotImplementedException();
+            var carToDelete = carsDao.GetCarById(id);
+
+            if (carToDelete is null)
+            {
+                return null;
+            }
+            return carsDao.DeleteCarById(id).AsDto();
+
         }
 
-        public ActionResult<CarDto> EditCarById(int id, CarInputDto carInput)
+        public ActionResult<CarDto> EditCarById(int id, CarEditDto carEditDto)
         {
-            throw new NotImplementedException();
+            var carToEdit = carsDao.GetCarById(id);
+
+            if (carToEdit is null)
+            {
+                return null;
+            }
+
+            Car editedCar = carToEdit with
+            {
+                Mileage = carEditDto.Mileage,
+                Color = carEditDto.Color,
+                Generation = carEditDto.Generation,
+                ProductionDate = carEditDto.ProductionDate,
+                IsAvailable = carEditDto.IsAvailable,
+                IdFuelType = carEditDto.IdFuelType
+            };
+
+            return carsDao.EditCarById(editedCar).AsDto();
         }
     }
 }
