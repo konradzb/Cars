@@ -1,3 +1,4 @@
+using Cars.Dtos;
 using Cars.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -7,11 +8,11 @@ namespace Cars.Repo
 {
     public interface ICarDao
     {
-        IEnumerable<Car> GetAllCars();
-        Car GetCarById(Guid id);
-        Car AddCar(CarInput carInput);
-        Car EditCarById(Guid id, CarInput carInput);
-        Car DeleteCarById(Guid id);
+        List<Car> GetAllCars();
+        Car GetCarById(int id);
+        Car AddCar(CarInputDto carInput);
+        Car EditCarById(int id, CarInputDto carInput);
+        Car DeleteCarById(int id);
 
     }
 }

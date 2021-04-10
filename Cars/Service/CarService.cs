@@ -1,4 +1,6 @@
-﻿using Cars.Model;
+﻿using Cars.Dtos;
+using Cars.Extensions;
+using Cars.Model;
 using Cars.Repo;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -17,26 +19,33 @@ namespace Cars.Service
             this.carsDao = carsDao;
         }
 
-        public IEnumerable<Car> GetAllCars()
+        public IEnumerable<CarDto> GetAllCars()
         {
-            return carsDao.GetAllCars();
+            var cars = carsDao.GetAllCars().ConvertAll(car => car.AsDto());
+            return cars;
         }
 
-        public ActionResult<Car> GetCarById(Guid id)
+        public ActionResult<CarDto> GetCarById(int id)
         {
-            return carsDao.GetCarById(id);
+            var car = carsDao.GetCarById(id);
+            if (car == null)
+            {
+                return null;
+            }
+            return car.AsDto();
         }
-        public Car AddCar(CarInput carInput)
+
+        public CarDto AddCar(CarInputDto carInput)
+        {
+            return carsDao.AddCar(carInput).AsDto();
+        }
+
+        public ActionResult<CarDto> DeleteCarById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public ActionResult<Car> EditCarById(Guid id, CarInput carInput)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ActionResult<Car> DeleteCarById(Guid id)
+        public ActionResult<CarDto> EditCarById(int id, CarInputDto carInput)
         {
             throw new NotImplementedException();
         }

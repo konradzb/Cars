@@ -4,7 +4,7 @@ namespace Cars.Model
 {
 	public class Car
 	{
-		public Guid Id { get; init; }
+		public int Id { get; init; }
 		public int Mileage { get; set; }
 		public string Color { get; set; }
 		public string Generation{ get; set; }
@@ -12,7 +12,7 @@ namespace Cars.Model
 		public bool IsAvailable { get; set; }
 		public int IdFuelType { get; set; }
 
-        public Car(Guid id, int mileage, string color, string generation, DateTime productionDate, bool isAvailable, int idFuelType)
+        public Car(int id, int mileage, string color, string generation, DateTime productionDate, bool isAvailable, int idFuelType)
         {
             Id = id;
             Mileage = mileage;
