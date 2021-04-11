@@ -18,7 +18,6 @@ namespace Cars.Model
 			this.Price = Price;
 			this.Producer = Producer;
 			this.DateOfProduction = DateOfProduction;
-
 		}
 
 
