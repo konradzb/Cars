@@ -9,7 +9,7 @@ namespace Cars.Service
     public interface ICarService
     {
         CarDto AddCar(CarInputDto carInput);
-        ActionResult<CarDto> DeleteCarById(int id);
+        ActionResult<bool> DeleteCarById(int id);
         ActionResult<CarDto> EditCarById(int id, CarEditDto carInput);
         IEnumerable<CarDto> GetAllCars();
         ActionResult<CarDto> GetCarById(int id);

@@ -36,11 +36,10 @@ namespace Cars.Repo
             return car;
         }
 
-        public Car DeleteCarById(int id)
+        public bool DeleteCarById(int id)
         {
             var carToDelete = GetCarById(id);
-            cars.Remove(carToDelete);
-            return carToDelete;
+            return cars.Remove(carToDelete);
         }
 
         public Car EditCarById(Car car)

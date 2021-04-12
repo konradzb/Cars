@@ -61,7 +61,7 @@ namespace Cars.Controllers
 		}
 
 		[HttpDelete("{id}")]
-		public ActionResult<CarDto> DeleteCarById(int id)
+		public ActionResult<bool> DeleteCarById(int id)
         {
 			var car = carService.DeleteCarById(id);
 			if (car == null)

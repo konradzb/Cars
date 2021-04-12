@@ -3,8 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 //CarEditDto is almost the same like CarInputDto,
 //but it's still a good practise to use them both,
-//In this case, the diffrence is that in editDto, 
-//variables are not required
 namespace Cars.Dtos
 {
     public record CarEditDto

@@ -12,7 +12,7 @@ namespace Cars.Repo
         Car GetCarById(int id);
         Car AddCar(Car car);
         Car EditCarById(Car car);
-        Car DeleteCarById(int id);
+        bool DeleteCarById(int id);
 
     }
 }

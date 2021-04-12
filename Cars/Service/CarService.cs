@@ -53,7 +53,7 @@ namespace Cars.Service
             return carsDao.AddCar(car).AsDto();
         }
 
-        public ActionResult<CarDto> DeleteCarById(int id)
+        public ActionResult<bool> DeleteCarById(int id)
         {
             var carToDelete = carsDao.GetCarById(id);
 
@@ -61,7 +61,7 @@ namespace Cars.Service
             {
                 return null;
             }
-            return carsDao.DeleteCarById(id).AsDto();
+            return carsDao.DeleteCarById(id);
 
         }
 
