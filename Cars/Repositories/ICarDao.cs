@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 
+// Interface resposible for communication with Data Base
 namespace Cars.Repo
 {
     public interface ICarDao

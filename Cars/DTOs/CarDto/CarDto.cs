@@ -1,5 +1,7 @@
 using System;
 
+//API returns this object instead of Car itself
+//It's good practise and reduces chances of the app breaking down
 namespace Cars.Dtos 
 {
     public record CarDto

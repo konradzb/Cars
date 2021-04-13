@@ -7,7 +7,8 @@ using System;
 using System.Collections.Generic;
 
 /// <summary>
-/// 
+/// Controller for Car Object, all methods related to car objects are here
+/// controller operates on DTO's, it never returns object car itself.
 /// </summary>
 namespace Cars.Controllers
 {

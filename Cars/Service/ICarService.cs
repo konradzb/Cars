@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 
+//Interface of a CarService,
+//every implementation should implements this one
 namespace Cars.Service
 {
     public interface ICarService

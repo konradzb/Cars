@@ -7,7 +7,8 @@ using System;
 using System.Collections.Generic;
 
 /// <summary>
-/// Cars
+/// This service is responsible for funcionality of a car object
+/// It is connected to the CarsDao and parses output to the car controller
 /// </summary>
 namespace Cars.Service
 {

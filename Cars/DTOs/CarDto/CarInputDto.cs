@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-
+// User passes ths object to create a new Car Object into Data Base
 namespace Cars.Dtos
 {
     public record CarInputDto

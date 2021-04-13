@@ -1,6 +1,8 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
+//User passes this object to edit already existing Car Object
+//
 //CarEditDto is almost the same like CarInputDto,
 //but it's still a good practise to use them both,
 namespace Cars.Dtos

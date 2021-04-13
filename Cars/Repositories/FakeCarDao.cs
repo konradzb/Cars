@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 
 /// <summary>
-/// Summary description for Class1
+/// In memmory data base for car object, based on a simple list
 /// </summary>
 namespace Cars.Repo
 {

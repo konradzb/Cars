@@ -1,5 +1,6 @@
 ﻿using System;
 
+//Car model
 namespace Cars.Model
 {
 	public record Car
