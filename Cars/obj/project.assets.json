@@ -193,20 +193,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Konrad\\.nuget\\packages\\": {}
+    "C:\\Users\\Adm\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CodeProjects\\C#\\Cars\\Cars\\Cars.csproj",
+      "projectUniqueName": "D:\\Projects\\Cars\\Cars\\Cars.csproj",
       "projectName": "Cars",
-      "projectPath": "D:\\CodeProjects\\C#\\Cars\\Cars\\Cars.csproj",
-      "packagesPath": "C:\\Users\\Konrad\\.nuget\\packages\\",
-      "outputPath": "D:\\CodeProjects\\C#\\Cars\\Cars\\obj\\",
+      "projectPath": "D:\\Projects\\Cars\\Cars\\Cars.csproj",
+      "packagesPath": "C:\\Users\\Adm\\.nuget\\packages\\",
+      "outputPath": "D:\\Projects\\Cars\\Cars\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Konrad\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Adm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -254,7 +259,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "D:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
