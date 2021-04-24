@@ -1,13 +1,13 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-// User passes ths object to create a new Car Object into Data Base
+//User passes ths object to create a new Car Object into Data Base
 namespace Cars.Dtos
 {
     public record CarInputDto
     {
         [Required]
-        [Range(0,4999999)]
+        [Range(0, 4999999)]
         public int Mileage { get; set; }
         [Required]
         public string Color { get; set; }
