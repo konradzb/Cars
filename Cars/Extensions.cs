@@ -21,5 +21,16 @@ namespace Cars.Extensions
             );
             return item;
         }
+        public static BrandDto AsDto(this Brand brand)
+        {
+            BrandDto item = new BrandDto(
+                brand.Id,
+                brand.Name,
+                brand.Founder,
+                brand.Origin,
+                brand.Headquarter,
+                brand.EstablishmentDate);
+            return item;
+        }
     }
 }
