@@ -1,4 +1,5 @@
 using Cars.Repo;
+using Cars.Repositories;
 using Cars.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,6 +37,8 @@ namespace Cars
 
             services.AddSingleton<ICarRentalService, CarRentalService>();
             services.AddSingleton<ICarRentalDao, FakeCarRentalDao>();
+
+            services.AddSingleton<IEmployeeRepository, FakeEmployeeRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

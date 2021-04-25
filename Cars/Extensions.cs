@@ -1,5 +1,6 @@
 using Cars.Dtos;
 using Cars.Model;
+using Cars.StaffDTO;
 
 //This class is created to save lines of code and make it more readable
 //If you you have piece of code witch have to be reapeted over and over again, 
@@ -46,6 +47,17 @@ namespace Cars.Extensions
                 carRental. Price
             );
             return item;
+        }
+        public static EmployeeDto AsDto(this Employee staff)
+        {
+            return new EmployeeDto
+            {
+                id = staff.id,
+                name = staff.name,
+                surname = staff.surname,
+                dateOfBirth = staff.dateOfBirth,
+                position = staff.position
+            };
         }
     }
 }
