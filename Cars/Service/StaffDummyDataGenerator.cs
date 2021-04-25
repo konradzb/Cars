@@ -17,11 +17,11 @@ namespace Cars.Service
 
         private List<string> positions = new List<string> { "Menedżer", "Pracownik", "Kierowca" };
 
-        public void fakeEmployeeGenerator(ref List<Staff> staff, int numberOfObjectsTocreate)
+        public void fakeEmployeeGenerator(ref List<Employee> staff, int numberOfObjectsTocreate)
         {
             for(int i=0;i<numberOfObjectsTocreate;i++)
             {
-                staff.Add(new Staff(this.names[randomIntNumber()], this.surnames[randomIntNumber()], dateOfBirth, this.positions[randomIntNumber()]));
+                staff.Add(new Employee(this.names[randomIntNumber()], this.surnames[randomIntNumber()], dateOfBirth, this.positions[randomIntNumber()]));
             }
         }
 

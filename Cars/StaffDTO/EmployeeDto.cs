@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace Cars.StaffDTO
 {
-    public record StaffDto
+    public record EmployeeDto
     {
-        public static int lastId = 0;
-        public int id { get; }
+        public int id { get; set; }
         public string name { get; set; }
         public string surname { get; set; }
         public DateTime dateOfBirth { get; set; }

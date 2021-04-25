@@ -7,37 +7,38 @@ using Cars.Service;
 
 namespace Cars.Repositories
 {
-    public class FakeStaffRepository : IStaffRepository
+    public class FakeEmployeeRepository : IEmployeeRepository
     {
         private StaffDummyDataGenerator generateEmployees = new StaffDummyDataGenerator();
-        private List<Staff> staff = new();
-        public FakeStaffRepository()
+        private List<Employee> staff = new();
+        public FakeEmployeeRepository()
         {
             generateEmployees.fakeEmployeeGenerator(ref staff, 3);
         }
-        public void addEmployee(Staff staff)
+        public void addEmployee(Employee employee)
         {
-            this.staff.Add(staff);
+            this.staff.Add(employee);
         }
 
-        public Staff editEmployeeById(int id)
+        public void editEmployeeById(Employee employee)
         {
-            throw new NotImplementedException();
+            var index = staff.FindIndex(existingEmployee => existingEmployee.id == employee.id);
+            staff[index] = employee;
         }
 
-        public List<Staff> getAllEmployees()
+        public List<Employee> getAllEmployees()
         {
             return this.staff;
         }
 
-        public Staff getEmployeeById(int id)
+        public Employee getEmployeeById(int id)
         {
             return this.staff.Find(item => item.id == id);
         }
 
         public bool removeEmployeeById(int id)
         {
-            Staff employeeToBeDeleted = this.getEmployeeById(id);
+            Employee employeeToBeDeleted = this.getEmployeeById(id);
             return this.staff.Remove(employeeToBeDeleted);
         }
     }
