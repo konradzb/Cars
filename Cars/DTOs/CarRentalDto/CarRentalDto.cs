@@ -12,9 +12,9 @@ namespace Cars.Dtos
         public int EmployeeId { get; set; }
         public DateTime RentalTimeStart { get; set; }
         public DateTime RentalTimeEnd { get; set; }
-        public int Price { get; set; }
+        public double Price { get; set; }
 
-        public CarRentalDto(int id, int clientId, int carId, int employeeId, DateTime rentalTimeStart, DateTime rentalTimeEnd, int price)
+        public CarRentalDto(int id, int clientId, int carId, int employeeId, DateTime rentalTimeStart, DateTime rentalTimeEnd, double price)
         {
             Id = id;
             ClientId = clientId;

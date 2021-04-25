@@ -21,9 +21,9 @@ namespace Cars.Dtos
         public DateTime RentalTimeEnd { get; set; }
         [Required]
         [Range(0, 9999999)]
-        public float Price { get; set; }
+        public double Price { get; set; }
 
-        public CarRentalEditDto(int clientId, int carId, int employeeId, DateTime rentalTimeStart, DateTime rentalTimeEnd, float price)
+        public CarRentalEditDto(int clientId, int carId, int employeeId, DateTime rentalTimeStart, DateTime rentalTimeEnd, double price)
         {
             ClientId = clientId;
             CarId = carId;

@@ -16,23 +16,23 @@ namespace Cars.Controllers
 	[Route("cars")]
 	public class CarRestController : ControllerBase
 	{
-		private readonly ICarService carService;
+		private readonly ICarService CarService;
 
 		public CarRestController(ICarService carService)
 		{
-			this.carService = carService;
+			this.CarService = carService;
 		}
 
 		[HttpGet]
-		public IEnumerable<CarDto> getAllCars()
+		public IEnumerable<CarDto> GetAllCars()
 		{
-			return carService.GetAllCars();
+			return CarService.GetAllCars();
 		}
 
 		[HttpGet("{id}")]
 		public ActionResult<CarDto> GetCarById(int id)
 		{
-			var car =  carService.GetCarById(id);
+			var car =  CarService.GetCarById(id);
 			if (car == null)
             {
 				return NotFound();
@@ -43,7 +43,7 @@ namespace Cars.Controllers
 		[HttpPost]
 		public ActionResult<CarDto> AddCar(CarInputDto carInput)
         {
-			CarDto car = carService.AddCar(carInput);
+			CarDto car = CarService.AddCar(carInput);
 
 			// It adds a 'location' header in to HTTP resposne, with a link to the object
 			return CreatedAtAction(nameof(GetCarById), new { id = car.Id }, car);
@@ -52,7 +52,7 @@ namespace Cars.Controllers
 		[HttpPut("{id}")]
 		public ActionResult<CarDto> EditCarById(int id, CarEditDto carEditDto)
         {
-			var car = carService.EditCarById(id, carEditDto);
+			var car = CarService.EditCarById(id, carEditDto);
 			if (car == null)
 			{
 				return NotFound();
@@ -64,7 +64,7 @@ namespace Cars.Controllers
 		[HttpDelete("{id}")]
 		public ActionResult<bool> DeleteCarById(int id)
         {
-			var car = carService.DeleteCarById(id);
+			var car = CarService.DeleteCarById(id);
 			if (car == null)
 			{
 				return NotFound();

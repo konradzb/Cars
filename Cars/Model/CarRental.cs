@@ -11,9 +11,9 @@ namespace Cars.Model
         public int EmployeeId { get; set; }
         public DateTime RentalTimeStart { get; set; }
         public DateTime RentalTimeEnd { get; set; }
-        public float Price { get; set; }
+        public double Price { get; set; }
 
-        public CarRental(int id, int clientId, int carId, int employeeId, DateTime rentalTimeStart, DateTime rentalTimeEnd, float price)
+        public CarRental(int id, int clientId, int carId, int employeeId, DateTime rentalTimeStart, DateTime rentalTimeEnd, double price)
         {
             Id = id;
             ClientId = clientId;

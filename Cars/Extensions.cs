@@ -29,7 +29,22 @@ namespace Cars.Extensions
                 brand.Founder,
                 brand.Origin,
                 brand.Headquarter,
-                brand.EstablishmentDate);
+                brand.EstablishmentDate
+            );
+            return item;
+        }
+
+        public static CarRentalDto AsDto(this CarRental carRental)
+        {
+            CarRentalDto item = new CarRentalDto(
+                carRental.Id,
+                carRental.ClientId,
+                carRental.CarId,
+                carRental.EmployeeId,
+                carRental.RentalTimeStart,
+                carRental.RentalTimeEnd,
+                carRental. Price
+            );
             return item;
         }
     }
