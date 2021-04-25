@@ -1,0 +1,5 @@
+*.suo
+./Cars/bin/*
+./Cars/obj/*
+./Cars/Cars.csproj.user
+./Cars/.vs/*
