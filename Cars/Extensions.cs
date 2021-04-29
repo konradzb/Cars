@@ -47,5 +47,18 @@ namespace Cars.Extensions
             );
             return item;
         }
+        public static ModelDto AsDto(this Model.Model model)
+        {
+            ModelDto item = new ModelDto(
+                model.Id,
+                model.BrandId,
+                model.Type,
+                model.Name,
+                model.Power,
+                model.IdFuelType,
+                model.IdCarDrive
+           );
+            return item;
+        }
     }
 }

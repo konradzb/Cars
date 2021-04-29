@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 /// <summary>
 /// Controller for Brand Object
-/// Controller operates on DTO's, it never returns obejct car itself
+/// Controller operates on DTO's, it never returns object brand itself
 /// </summary>
 namespace Cars.Controllers
 {     
