@@ -16,22 +16,23 @@ namespace Cars.Dtos
         [Required]
         public string Name { get; set; }
         [Required]
-        public string Generation { get; set; }
+        [Range(0, 20000)]
+        public int Power { get; set; }
         [Required]
-        [Range(1, 4)]
+        [Range(0, 3)]
         public int IdFuelType { get; set; }
         [Required]
-        [Range(0, 999)]
-        public double Combustion { get; set; }
+        [Range(0, 3)]
+        public int IdCarDrive { get; set; }
 
-        public ModelInputDto(int brandId, string type, string name, string generation, int idFuelType, double combustion)
+        public ModelInputDto(int brandId, string type, string name, int power, int idFuelType, int idCarDrive)
         {
             BrandId = brandId;
             Type = type;
             Name = name;
-            Generation = generation;
+            Power = power;
             IdFuelType = idFuelType;
-            Combustion = combustion;
+            IdCarDrive = idCarDrive;
         }
     }
 }
