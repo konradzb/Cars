@@ -37,6 +37,9 @@ namespace Cars
             services.AddSingleton<ICarRentalService, CarRentalService>();
             services.AddSingleton<ICarRentalDao, FakeCarRentalDao>();
 
+            services.AddSingleton<IModelService, ModelService>();
+            services.AddSingleton<IModelDao, FakeModelDao>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
