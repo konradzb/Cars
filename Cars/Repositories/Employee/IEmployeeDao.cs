@@ -6,11 +6,11 @@ using Cars.Model;
 
 namespace Cars.Repositories
 {
-    public interface IEmployeeRepository
+    public interface IEmployeeDao
     {
         List<Employee> getAllEmployees();
         Employee getEmployeeById(int id);
-        void addEmployee(Employee employee); 
+        Employee addEmployee(Employee employee); 
         bool removeEmployeeById(int id);
         void editEmployeeById(Employee employee);
 

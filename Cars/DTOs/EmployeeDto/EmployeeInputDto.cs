@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Cars.StaffDTO
+namespace Cars.DTOs
 {
-    public record UpdateEmployeeDto
+    public record EmployeeInputDto
     {
         [Required]
         public int id { get; set; }
@@ -18,5 +18,6 @@ namespace Cars.StaffDTO
         public DateTime dateOfBirth { get; set; }
         [Required]
         public string position { get; set; }
+
     }
 }

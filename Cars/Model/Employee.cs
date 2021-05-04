@@ -7,16 +7,15 @@ namespace Cars.Model
 {
     public record Employee
     {
-        public static int lastId = 0;
         public int id { get; set; }
         public string name { get; set; }
         public string surname { get; set; }
         public DateTime dateOfBirth { get; set; }
         public string position { get; set; }
         
-        public Employee(string name, string surname, DateTime dateOfBirth, string position)
+        public Employee(int id, string name, string surname, DateTime dateOfBirth, string position)
         {
-            this.id = lastId++;
+            this.id = id;
             this.name = name;
             this.surname = surname;
             this.dateOfBirth = dateOfBirth;

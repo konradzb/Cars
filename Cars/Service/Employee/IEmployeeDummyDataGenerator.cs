@@ -6,8 +6,8 @@ using Cars.Model;
 
 namespace Cars.Service
 {
-    interface IStaffDummyDataGenerator
+    interface IEmployeeDummyDataGenerator
     {
-        void fakeEmployeeGenerator(ref List<Employee> staff ,int numberOfObjectsTocreate);
+        void fakeEmployeeGenerator(ref List<Model.Employee> staff ,int numberOfObjectsTocreate);
     }
 }

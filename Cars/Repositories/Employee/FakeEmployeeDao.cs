@@ -7,17 +7,18 @@ using Cars.Service;
 
 namespace Cars.Repositories
 {
-    public class FakeEmployeeRepository : IEmployeeRepository
+    public class FakeEmployeeDao : IEmployeeDao
     {
-        private StaffDummyDataGenerator generateEmployees = new StaffDummyDataGenerator();
-        private List<Employee> staff = new();
-        public FakeEmployeeRepository()
+        private EmployeeDummyDataGenerator generateEmployees = new EmployeeDummyDataGenerator();
+        private List<Employee> staff = new List<Employee>();
+        public FakeEmployeeDao()
         {
             generateEmployees.fakeEmployeeGenerator(ref staff, 3);
         }
-        public void addEmployee(Employee employee)
+        public Employee addEmployee(Employee employee)
         {
             this.staff.Add(employee);
+            return employee;
         }
 
         public void editEmployeeById(Employee employee)

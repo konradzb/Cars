@@ -1,6 +1,6 @@
 using Cars.Dtos;
 using Cars.Model;
-using Cars.StaffDTO;
+using Cars.DTOs;
 
 //This class is created to save lines of code and make it more readable
 //If you you have piece of code witch have to be reapeted over and over again, 
@@ -48,15 +48,15 @@ namespace Cars.Extensions
             );
             return item;
         }
-        public static EmployeeDto AsDto(this Employee staff)
+        public static EmployeeDto AsDto(this Employee employee)
         {
             return new EmployeeDto
             {
-                id = staff.id,
-                name = staff.name,
-                surname = staff.surname,
-                dateOfBirth = staff.dateOfBirth,
-                position = staff.position
+                id = employee.id,
+                name = employee.name,
+                surname = employee.surname,
+                dateOfBirth = employee.dateOfBirth,
+                position = employee.position
             };
         }
     }

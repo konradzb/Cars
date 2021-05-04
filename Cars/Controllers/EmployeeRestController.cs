@@ -7,7 +7,8 @@ using Cars.Repositories;
 using Cars.Model;
 using Cars.Dtos;
 using Cars.Extensions;
-using Cars.StaffDTO;
+using Cars.DTOs;
+using Cars.Service;
 
 namespace Cars.Controllers
 {
@@ -15,63 +16,47 @@ namespace Cars.Controllers
     [Route("staff")]
     public class EmployeeRestController : ControllerBase
     {
-        private readonly IEmployeeRepository repository;
-        public EmployeeRestController(IEmployeeRepository repository)
+        private readonly IEmployeeService employeeService;
+        public EmployeeRestController(IEmployeeService employeeService)
         {
-            this.repository = repository;
+            this.employeeService = employeeService;
         }
         
         [HttpGet]
         public IEnumerable<EmployeeDto> GetStaff()
         {
-            var staff = repository.getAllEmployees().Select(item => item.AsDto());
-            return staff;
+            return employeeService.GetStaff();
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Employee> GetEmployee(int id)
+        public ActionResult<EmployeeDto> GetEmployee(int id)
         {
-            Employee employee = repository.getEmployeeById(id);   
+            var employee = employeeService.GetEmployee(id);   
             if (employee is null)
                 return NotFound();
             
             return employee;
         }
         [HttpPost]
-        public ActionResult<EmployeeDto> CreateEmployee(CreateEmployeeDto employeeDto)
+        public ActionResult<EmployeeDto> CreateEmployee(EmployeeInputDto employeeDto)
         {
-            Employee employee = new Employee(employeeDto.name, employeeDto.surname, employeeDto.dateOfBirth, employeeDto.position);
-            repository.addEmployee(employee);
-
-            return CreatedAtAction(nameof(GetEmployee), new { id = employee.id }, employee.AsDto());
+            var employee = employeeService.CreateEmployee(employeeDto);
+            return CreatedAtAction(nameof(GetEmployee), new { id = employee.id }, employee);
         }
         [HttpPut("{id}")]
-        public ActionResult UpdateItem(int id, UpdateEmployeeDto employeeDto)
+        public ActionResult<EmployeeDto> UpdateItem(int id, EmployeeEditDto employeeDto)
         {
-            Employee existingEmployee = repository.getEmployeeById(id);
-            if(existingEmployee is null)
-            {
-                return NotFound();
-            }
-            Employee updatedEmployee = existingEmployee with
-            {
-                id = employeeDto.id,
-                name = employeeDto.name,
-                surname = employeeDto.surname,
-                dateOfBirth = employeeDto.dateOfBirth,
-                position = employeeDto.position
-            };
-            repository.editEmployeeById(updatedEmployee);
 
-            return NoContent();
+            var employee = employeeService.UpdateItem(id, employeeDto);
+            if (employee == null)
+                return null;
+
+            return employee;
         }
         [HttpDelete("{id}")]
-        public ActionResult DeleteItem(int id)
+        public ActionResult<bool> DeleteItem(int id)
         {
-            if (repository.removeEmployeeById(id))
-                return NoContent();
-            else
-                return NotFound();
+            return employeeService.DeleteItem(id);
         }
     }
 }
