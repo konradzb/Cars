@@ -21,10 +21,11 @@ namespace Cars.Repositories
             return employee;
         }
 
-        public void editEmployeeById(Employee employee)
+        public Employee editEmployeeById(Employee employee)
         {
             var index = staff.FindIndex(existingEmployee => existingEmployee.id == employee.id);
             staff[index] = employee;
+            return staff[index];
         }
 
         public List<Employee> getAllEmployees()

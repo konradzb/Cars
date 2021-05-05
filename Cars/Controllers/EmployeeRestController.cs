@@ -41,7 +41,7 @@ namespace Cars.Controllers
         public ActionResult<EmployeeDto> CreateEmployee(EmployeeInputDto employeeDto)
         {
             var employee = employeeService.CreateEmployee(employeeDto);
-            return CreatedAtAction(nameof(GetEmployee), new { id = employee.id }, employee);
+            return employee;
         }
         [HttpPut("{id}")]
         public ActionResult<EmployeeDto> UpdateItem(int id, EmployeeEditDto employeeDto)
