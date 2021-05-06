@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cars.Dtos
 {
-    public class BrandEditDto
+    public record BrandEditDto
     {
         [Required]
         public string Name { get; set; }

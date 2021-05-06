@@ -3,7 +3,7 @@ using Cars.Model;
 using Cars.DTOs;
 
 //This class is created to save lines of code and make it more readable
-//If you you have piece of code witch have to be reapeted over and over again, 
+//If you you have piece of code witch have to be reapeted over and over again,
 //put it here and make it a static method
 namespace Cars.Extensions
 {
