@@ -44,7 +44,7 @@ namespace Cars.Extensions
                 carRental.EmployeeId,
                 carRental.RentalTimeStart,
                 carRental.RentalTimeEnd,
-                carRental. Price
+                carRental.Price
             );
             return item;
         }
@@ -58,6 +58,19 @@ namespace Cars.Extensions
                 dateOfBirth = employee.dateOfBirth,
                 position = employee.position
             };
+        }
+        public static ModelDto AsDto(this Model.Model model)
+        {
+            ModelDto item = new ModelDto(
+                model.Id,
+                model.BrandId,
+                model.Type,
+                model.Name,
+                model.Power,
+                model.IdFuelType,
+                model.IdCarDrive
+           );
+            return item;
         }
     }
 }

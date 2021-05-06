@@ -43,6 +43,9 @@ namespace Cars
             services.AddSingleton<IModelService, ModelService>();
             services.AddSingleton<IModelDao, FakeModelDao>();
 
+            services.AddSingleton<IEmployeeService, EmployeeService>();
+            services.AddSingleton<IEmployeeDao, FakeEmployeeDao>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
