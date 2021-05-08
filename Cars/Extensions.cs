@@ -59,6 +59,14 @@ namespace Cars.Extensions
                 position = employee.position
             };
         }
+        public static FuelTypeDto AsDto(this FuelType fuel)
+        {
+            FuelTypeDto fuelType = new FuelTypeDto(
+                 fuel.id,
+                 fuel.name
+             );
+            return fuelType;
+        }
         public static ModelDto AsDto(this Model.Model model)
         {
             ModelDto item = new ModelDto(
@@ -72,5 +80,6 @@ namespace Cars.Extensions
            );
             return item;
         }
+
     }
 }

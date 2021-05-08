@@ -1,8 +1,10 @@
 using Cars.DTOs;
 using Cars.Repo;
 using Cars.Repositories;
+using Cars.Repositories.FuelType;
 using Cars.Service;
 using Cars.Service.Employee;
+using Cars.Service.FuelType;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -45,6 +47,9 @@ namespace Cars
 
             services.AddSingleton<IEmployeeService, EmployeeService>();
             services.AddSingleton<IEmployeeDao, FakeEmployeeDao>();
+
+            services.AddSingleton<IFuelTypeService, FuelTypeService>();
+            services.AddSingleton<IFuelTypeDao, FakeFuelTypeDao>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
