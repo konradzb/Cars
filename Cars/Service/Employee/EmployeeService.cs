@@ -16,9 +16,9 @@ namespace Cars.Service.Employee
         {
             this.employeeDao = employeeDao;
         }
-        public ActionResult<EmployeeDto> CreateEmployee(EmployeeInputDto employeeDto)
+        public EmployeeDto CreateEmployee(EmployeeInputDto employeeDto)
         {
-            int id = 0;
+            int id = employeeDao.staffLength();
             Model.Employee employee = new Model.Employee(id, employeeDto.name, employeeDto.surname, employeeDto.dateOfBirth, employeeDto.position);
             return employeeDao.addEmployee(employee).AsDto();
         }

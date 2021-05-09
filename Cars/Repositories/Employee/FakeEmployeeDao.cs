@@ -43,5 +43,9 @@ namespace Cars.Repositories
             Employee employeeToBeDeleted = this.getEmployeeById(id);
             return this.staff.Remove(employeeToBeDeleted);
         }
+        public int staffLength()
+        {
+            return this.staff.Count;
+        }
     }
 }

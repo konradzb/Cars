@@ -13,6 +13,7 @@ namespace Cars.Repositories
         Employee addEmployee(Employee employee); 
         bool removeEmployeeById(int id);
         Employee editEmployeeById(Employee employee);
+        int staffLength();
 
     }
 }
