@@ -9,11 +9,12 @@ using Cars.Dtos;
 using Cars.Extensions;
 using Cars.DTOs;
 using Cars.Service;
+using Cars.Service.Employee;
 
 namespace Cars.Controllers
 {
     [ApiController]
-    [Route("staff")]
+    [Route("employee")]
     public class EmployeeRestController : ControllerBase
     {
         private readonly IEmployeeService employeeService;
