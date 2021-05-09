@@ -1009,19 +1009,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Konrad\\.nuget\\packages\\": {}
+    "C:\\Users\\mhutn\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CodeProjects\\C#\\Cars\\Cars\\Cars.csproj",
+      "projectUniqueName": "D:\\VS-projects\\school\\Cars\\Cars\\Cars.csproj",
       "projectName": "Cars",
-      "projectPath": "D:\\CodeProjects\\C#\\Cars\\Cars\\Cars.csproj",
-      "packagesPath": "C:\\Users\\Konrad\\.nuget\\packages\\",
-      "outputPath": "D:\\CodeProjects\\C#\\Cars\\Cars\\obj\\",
+      "projectPath": "D:\\VS-projects\\school\\Cars\\Cars\\Cars.csproj",
+      "packagesPath": "C:\\Users\\mhutn\\.nuget\\packages\\",
+      "outputPath": "D:\\VS-projects\\school\\Cars\\Cars\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Konrad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mhutn\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1084,8 +1084,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "D:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\VS-projects\\school\\Cars\\Cars\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

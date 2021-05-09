@@ -1,8 +1,9 @@
 using Cars.Dtos;
 using Cars.Model;
+using Cars.DTOs;
 
 //This class is created to save lines of code and make it more readable
-//If you you have piece of code witch have to be reapeted over and over again, 
+//If you you have piece of code witch have to be reapeted over and over again,
 //put it here and make it a static method
 namespace Cars.Extensions
 {
@@ -43,9 +44,28 @@ namespace Cars.Extensions
                 carRental.EmployeeId,
                 carRental.RentalTimeStart,
                 carRental.RentalTimeEnd,
-                carRental. Price
+                carRental.Price
             );
             return item;
+        }
+        public static EmployeeDto AsDto(this Employee employee)
+        {
+            return new EmployeeDto
+            {
+                id = employee.id,
+                name = employee.name,
+                surname = employee.surname,
+                dateOfBirth = employee.dateOfBirth,
+                position = employee.position
+            };
+        }
+        public static FuelTypeDto AsDto(this FuelType fuel)
+        {
+            FuelTypeDto fuelType = new FuelTypeDto(
+                 fuel.id,
+                 fuel.name
+             );
+            return fuelType;
         }
         public static ModelDto AsDto(this Model.Model model)
         {
@@ -60,5 +80,6 @@ namespace Cars.Extensions
            );
             return item;
         }
+
     }
 }
