@@ -145,3 +145,12 @@ D:\VS-projects\school\Cars\Cars\obj\Debug\net5.0\scopedcss\bundle\Cars.styles.cs
 D:\VS-projects\school\Cars\Cars\obj\Debug\net5.0\Cars.RazorTargetAssemblyInfo.cache
 D:\VS-projects\school\Cars\Cars\obj\Debug\net5.0\Cars.csproj.CopyComplete
 D:\VS-projects\school\Cars\Cars\obj\Debug\net5.0\Cars.genruntimeconfig.cache
+D:\Projects\Cars\Cars\bin\Debug\net5.0\Humanizer.dll
+D:\Projects\Cars\Cars\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+D:\Projects\Cars\Cars\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Projects\Cars\Cars\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Projects\Cars\Cars\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Projects\Cars\Cars\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Projects\Cars\Cars\bin\Debug\net5.0\MySqlConnector.dll
+D:\Projects\Cars\Cars\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\Projects\Cars\Cars\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
