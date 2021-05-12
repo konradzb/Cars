@@ -51,6 +51,9 @@ namespace Cars
             services.AddSingleton<IFuelTypeService, FuelTypeService>();
             services.AddSingleton<IFuelTypeDao, FakeFuelTypeDao>();
 
+            services.AddSingleton<ICarDriveService, CarDriveService>();
+            services.AddSingleton<ICarDriveDao, FakeCarDriveDao>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

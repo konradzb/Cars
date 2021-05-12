@@ -80,6 +80,13 @@ namespace Cars.Extensions
            );
             return item;
         }
-
+        public static CarDriveDto AsDto(this CarDrive carDrive)
+        {
+            CarDriveDto item = new CarDriveDto(
+                carDrive.Id,
+                carDrive.Name
+            );
+            return item;
+        }
     }
 }
