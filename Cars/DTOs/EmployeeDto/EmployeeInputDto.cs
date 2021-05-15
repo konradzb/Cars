@@ -18,6 +18,13 @@ namespace Cars.DTOs
         public DateTime dateOfBirth { get; set; }
         [Required]
         public string position { get; set; }
+        [Required]
+        [EmailAddress]
+        public string email { get; set; }
+        [Required]
+        public string password { get; set; }
+        [Required]
+        public string username { get; set; }
 
     }
 }
