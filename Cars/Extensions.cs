@@ -13,12 +13,12 @@ namespace Cars.Extensions
         {
             CarDto item = new CarDto(
                 car.Id,
+                car.ModelId,
                 car.Mileage,
                 car.Color,
-                car.Generation,
                 car.ProductionDate,
                 car.IsAvailable,
-                car.IdFuelType
+                car.PricePerDay
             );
             return item;
         }

@@ -44,12 +44,12 @@ namespace Cars.Service
             int id = 0;
             Car car = new Car(
                    id,
+                   carInput.ModelId,
                    carInput.Mileage,
                    carInput.Color,
-                   carInput.Generation,
                    carInput.ProductionDate,
                    carInput.IsAvailable,
-                   carInput.IdFuelType
+                   carInput.PricePerDay
                );
             return carsDao.AddCar(car).AsDto();
         }
@@ -77,12 +77,12 @@ namespace Cars.Service
 
             Car editedCar = carToEdit with
             {
+                ModelId = carEditDto.ModelId,
                 Mileage = carEditDto.Mileage,
                 Color = carEditDto.Color,
-                Generation = carEditDto.Generation,
                 ProductionDate = carEditDto.ProductionDate,
                 IsAvailable = carEditDto.IsAvailable,
-                IdFuelType = carEditDto.IdFuelType
+                PricePerDay = carEditDto.PricePerDay
             };
 
             return carsDao.EditCarById(editedCar).AsDto();
