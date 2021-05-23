@@ -55,8 +55,12 @@ namespace Cars
             services.AddSingleton<IEmployeeService, EmployeeService>();
             services.AddSingleton<IEmployeeDao, FakeEmployeeDao>();
 
+            services.AddSingleton<ICarDriveService, CarDriveService>();
+            services.AddSingleton<ICarDriveDao, FakeCarDriveDao>();
+
             services.AddSingleton<IFuelTypeService, FuelTypeService>();
             services.AddSingleton<IFuelTypeDao, FakeFuelTypeDao>();
+
 
             services.AddAuthentication(options => {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
