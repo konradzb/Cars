@@ -10,28 +10,29 @@ namespace Cars.Dtos
     public record CarEditDto
     {
         [Required]
-        [Range(0, 4999999)]
+        [Range(0, 9999999)]
+        public int ModelId { get; set; }
+        [Required]
+        [Range(0, 9999999)]
         public int Mileage { get; set; }
         [Required]
         public string Color { get; set; }
-        [Required]
-        public string Generation { get; set; }
         [Required]
         public DateTime ProductionDate { get; set; }
         [Required]
         public bool IsAvailable { get; set; }
         [Required]
-        [Range(1, 3)]
-        public int IdFuelType { get; set; }
+        [Range(0, 9999999)]
+        public double PricePerDay { get; set; }
 
-        public CarEditDto(int mileage, string color, string generation, DateTime productionDate, bool isAvailable, int idFuelType)
+        public CarEditDto(int modelId, int mileage, string color, DateTime productionDate, bool isAvailable, double pricePerDay)
         {
+            ModelId = modelId;
             Mileage = mileage;
             Color = color;
-            Generation = generation;
             ProductionDate = productionDate;
             IsAvailable = isAvailable;
-            IdFuelType = idFuelType;
+            PricePerDay = pricePerDay;
         }
     }
 }

@@ -13,12 +13,12 @@ namespace Cars.Extensions
         {
             CarDto item = new CarDto(
                 car.Id,
+                car.ModelId,
                 car.Mileage,
                 car.Color,
-                car.Generation,
                 car.ProductionDate,
                 car.IsAvailable,
-                car.IdFuelType
+                car.PricePerDay
             );
             return item;
         }
@@ -80,6 +80,13 @@ namespace Cars.Extensions
            );
             return item;
         }
-
+        public static CarDriveDto AsDto(this CarDrive carDrive)
+        {
+            CarDriveDto item = new CarDriveDto(
+                carDrive.Id,
+                carDrive.Name
+            );
+            return item;
+        }
     }
 }
