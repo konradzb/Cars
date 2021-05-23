@@ -1,4 +1,5 @@
 using Cars.Model;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,7 +10,7 @@ using System;
 // to update the database type "update-database" and it will use the latest migration
 namespace Cars.Configuration
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
         public virtual DbSet<Car> Cars { get; set; }
         public virtual DbSet<Brand> Brands { get; set; }

@@ -12,14 +12,20 @@ namespace Cars.Model
         public string surname { get; set; }
         public DateTime dateOfBirth { get; set; }
         public string position { get; set; }
-        
-        public Employee(int id, string name, string surname, DateTime dateOfBirth, string position)
+        public string email { get; set; }
+        public string password { get; set; }
+        public string username { get; set; }
+
+        public Employee(int id, string name, string surname, DateTime dateOfBirth, string position, string email, string password, string username)
         {
             this.id = id;
             this.name = name;
             this.surname = surname;
             this.dateOfBirth = dateOfBirth;
             this.position = position;
+            this.email = email;
+            this.password = password;
+            this.username = username;
         }
     }
 }

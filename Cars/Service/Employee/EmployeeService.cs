@@ -19,7 +19,7 @@ namespace Cars.Service.Employee
         public EmployeeDto CreateEmployee(EmployeeInputDto employeeDto)
         {
             int id = employeeDao.staffLength();
-            Model.Employee employee = new Model.Employee(id, employeeDto.name, employeeDto.surname, employeeDto.dateOfBirth, employeeDto.position);
+            Model.Employee employee = new Model.Employee(id, employeeDto.name, employeeDto.surname, employeeDto.dateOfBirth, employeeDto.position, employeeDto.email, employeeDto.password, employeeDto.username);
             return employeeDao.addEmployee(employee).AsDto();
         }
 
