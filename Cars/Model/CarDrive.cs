@@ -9,6 +9,7 @@ namespace Cars.Model
     {
         public int Id { get; init; }
         public string Name { get; set; }
+        public List<Model> Models { get; set; }
 
         public CarDrive(int id, string name)
         {

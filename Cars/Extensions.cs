@@ -75,8 +75,8 @@ namespace Cars.Extensions
                 model.Type,
                 model.Name,
                 model.Power,
-                model.IdFuelType,
-                model.IdCarDrive
+                model.FuelTypeid,
+                model.CarDriveid
            );
             return item;
         }

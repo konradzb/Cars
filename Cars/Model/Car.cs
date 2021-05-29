@@ -7,6 +7,7 @@ namespace Cars.Model
 	{
         public int Id { get; init; }
         public int ModelId { get; set; }
+        public Model Model { get; set; }
         public int Mileage { get; set; }
         public string Color { get; set; }
         public DateTime ProductionDate { get; set; }
