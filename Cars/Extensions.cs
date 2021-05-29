@@ -39,12 +39,11 @@ namespace Cars.Extensions
         {
             CarRentalDto item = new CarRentalDto(
                 carRental.Id,
-                carRental.ClientId,
-                carRental.CarId,
-                carRental.EmployeeId,
                 carRental.RentalTimeStart,
                 carRental.RentalTimeEnd,
-                carRental.Price
+                carRental.Price,
+                carRental.UserId,
+                carRental.CarId
             );
             return item;
         }
