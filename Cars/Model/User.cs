@@ -15,6 +15,8 @@ namespace Cars.Model
         public string email { get; set; }
         public string username { get; set; }
 
+        List<CarRental> CarRentals { get; set; }
+
         public User(int id, string name, string surname, DateTime dateOfBirth, string position, string email, string username)
         {
             this.id = id;
