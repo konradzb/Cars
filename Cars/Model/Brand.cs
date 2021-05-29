@@ -13,6 +13,7 @@ namespace Cars.Model
         public string Origin { get; set; }  // country
         public string Headquarter { get; set; } // city
         public DateTime EstablishmentDate { get; set; }
+
         public List<Model> Models { get; set; }
 
         public Brand(int id, string name, string founder, string origin, string headquarter, DateTime establishmentDate)
