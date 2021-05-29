@@ -8,6 +8,6 @@ namespace Cars.Service
 {
     interface IEmployeeDummyDataGenerator
     {
-        void fakeEmployeeGenerator(ref List<Model.Employee> staff ,int numberOfObjectsTocreate);
+        void fakeEmployeeGenerator(ref List<Model.User> staff ,int numberOfObjectsTocreate);
     }
 }

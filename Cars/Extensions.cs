@@ -48,15 +48,15 @@ namespace Cars.Extensions
             );
             return item;
         }
-        public static EmployeeDto AsDto(this Employee employee)
+        public static UserDto AsDto(this User user)
         {
-            return new EmployeeDto
+            return new UserDto
             {
-                id = employee.id,
-                name = employee.name,
-                surname = employee.surname,
-                dateOfBirth = employee.dateOfBirth,
-                position = employee.position
+                id = user.id,
+                name = user.name,
+                surname = user.surname,
+                dateOfBirth = user.dateOfBirth,
+                position = user.position
             };
         }
         public static FuelTypeDto AsDto(this FuelType fuel)
