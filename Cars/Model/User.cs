@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Cars.Model
 {
-    public record Employee
+    public record User
     {
         public int id { get; set; }
         public string name { get; set; }
@@ -13,10 +13,9 @@ namespace Cars.Model
         public DateTime dateOfBirth { get; set; }
         public string position { get; set; }
         public string email { get; set; }
-        public string password { get; set; }
         public string username { get; set; }
 
-        public Employee(int id, string name, string surname, DateTime dateOfBirth, string position, string email, string password, string username)
+        public User(int id, string name, string surname, DateTime dateOfBirth, string position, string email, string username)
         {
             this.id = id;
             this.name = name;
@@ -24,7 +23,6 @@ namespace Cars.Model
             this.dateOfBirth = dateOfBirth;
             this.position = position;
             this.email = email;
-            this.password = password;
             this.username = username;
         }
     }

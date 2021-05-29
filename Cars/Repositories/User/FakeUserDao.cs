@@ -7,43 +7,43 @@ using Cars.Service;
 
 namespace Cars.Repositories
 {
-    public class FakeEmployeeDao : IEmployeeDao
+    public class FakeUserDao : IUserDao
     {
         private EmployeeDummyDataGenerator generateEmployees = new EmployeeDummyDataGenerator();
-        private List<Employee> staff = new List<Employee>();
-        public FakeEmployeeDao()
+        private List<User> staff = new List<User>();
+        public FakeUserDao()
         {
             generateEmployees.fakeEmployeeGenerator(ref staff, 3);
         }
-        public Employee addEmployee(Employee employee)
+        public User addUser(User user)
         {
-            this.staff.Add(employee);
-            return employee;
+            this.staff.Add(user);
+            return user;
         }
 
-        public Employee editEmployeeById(Employee employee)
+        public User editUserById(User user)
         {
-            var index = staff.FindIndex(existingEmployee => existingEmployee.id == employee.id);
-            staff[index] = employee;
+            var index = staff.FindIndex(existingEmployee => existingEmployee.id == user.id);
+            staff[index] = user;
             return staff[index];
         }
 
-        public List<Employee> getAllEmployees()
+        public List<User> getAllUsers()
         {
             return this.staff;
         }
 
-        public Employee getEmployeeById(int id)
+        public User getUserById(int id)
         {
             return this.staff.Find(item => item.id == id);
         }
 
-        public bool removeEmployeeById(int id)
+        public bool removeUserById(int id)
         {
-            Employee employeeToBeDeleted = this.getEmployeeById(id);
+            User employeeToBeDeleted = this.getUserById(id);
             return this.staff.Remove(employeeToBeDeleted);
         }
-        public int staffLength()
+        public int usersLength()
         {
             return this.staff.Count;
         }
