@@ -19,15 +19,15 @@ namespace Cars.Model
 
         public List<Car> Cars { get; set; }
 
-        public Model(int id, int brandId, string type, string name, int power, int fuelTypeid, int carDriveid)
+        public Model(int id, int brandId, string type, string name, int power, int fuelTypeId, int carDriveId)
         {
             Id = id;
             BrandId = brandId;
             Type = type;
             Name = name;
             Power = power;
-            CarDriveId = fuelTypeid;
-            FuelTypeId = carDriveid;
+            this.CarDriveId = fuelTypeId;
+            this.FuelTypeId = carDriveId;
         }
     }
 }
