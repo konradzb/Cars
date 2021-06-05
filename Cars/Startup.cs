@@ -43,8 +43,8 @@ namespace Cars
             services.AddSingleton<ICarService, CarService>();
             services.AddSingleton<ICarDao, FakeCarDao>();
 
-            services.AddSingleton<IBrandService, BrandService>();
-            services.AddSingleton<IBrandDao, FakeBrandDao>();
+            services.AddScoped<IBrandService, BrandService>();
+            services.AddScoped<IBrandDao, BrandDao>();
 
             services.AddSingleton<ICarRentalService, CarRentalService>();
             services.AddSingleton<ICarRentalDao, FakeCarRentalDao>();
@@ -55,8 +55,8 @@ namespace Cars
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserDao, UserDao>();
 
-            services.AddSingleton<ICarDriveService, CarDriveService>();
-            services.AddSingleton<ICarDriveDao, FakeCarDriveDao>();
+            services.AddScoped<ICarDriveService, CarDriveService>();
+            services.AddScoped<ICarDriveDao, CarDriveDao>();
 
             services.AddSingleton<IFuelTypeService, FuelTypeService>();
             services.AddSingleton<IFuelTypeDao, FakeFuelTypeDao>();
