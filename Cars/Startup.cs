@@ -52,8 +52,8 @@ namespace Cars
             services.AddSingleton<IModelService, ModelService>();
             services.AddSingleton<IModelDao, FakeModelDao>();
 
-            services.AddSingleton<IUserService, UserService>();
-            services.AddSingleton<IUserDao, FakeUserDao>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserDao, UserDao>();
 
             services.AddSingleton<ICarDriveService, CarDriveService>();
             services.AddSingleton<ICarDriveDao, FakeCarDriveDao>();
