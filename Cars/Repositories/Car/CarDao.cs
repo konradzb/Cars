@@ -23,14 +23,25 @@ namespace Cars.Repo
 
         public bool DeleteCarById(int id)
         {
-            throw new NotImplementedException();
+            var result = _dbContext.Cars.FirstOrDefault(c => c.Id == id);
+            if(result!=null)
+            {
+                _dbContext.Cars.Remove(result);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public Car EditCarById(Car car)
         {
-            _dbContext.Cars.Update(car);
-            _dbContext.SaveChanges();
-            return car;
+            var result = _dbContext.Cars.FirstOrDefault(c => c.Id == car.Id);
+            if(result != null)
+            {
+                _dbContext.Cars.Update(result);
+                _dbContext.SaveChanges();
+            }
+            return result;
         }
 
         public List<Car> GetAllCars()

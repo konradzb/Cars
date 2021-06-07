@@ -26,9 +26,13 @@ namespace Cars.Repositories
 
         public User editUserById(User user)
         {
-            _dbcontext.Update(user);
-            _dbcontext.SaveChanges();
-            return user;
+            var result = _dbcontext.Information_Users.FirstOrDefault(u => u.id == user.id);
+            if (result != null)
+            {
+                _dbcontext.Information_Users.Update(result);
+                _dbcontext.SaveChanges();
+            }
+            return result;
         }
 
         public List<User> getAllUsers()
@@ -43,12 +47,14 @@ namespace Cars.Repositories
 
         public bool removeUserById(int id)
         {
-            _dbcontext.Remove(id);
-            _dbcontext.SaveChanges();
-            if (getUserById(id) == null)
+            var result = _dbcontext.Information_Users.FirstOrDefault(u => u.id == id);
+            if (result != null)
+            {
+                _dbcontext.Information_Users.Remove(result);
+                _dbcontext.SaveChanges();
                 return true;
-            else
-                return false;
+            }
+            return false;
         }
 
         public int usersLength()

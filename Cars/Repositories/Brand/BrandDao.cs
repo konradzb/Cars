@@ -24,14 +24,25 @@ namespace Cars.Repo
 
         public bool DeleteBrandById(int id)
         {
-            throw new NotImplementedException();
+            var result = _dbContext.Brands.FirstOrDefault(b => b.Id == id);
+            if (result != null)
+            {
+                _dbContext.Brands.Remove(result);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public Brand EditBrandById(Brand brand)
         {
-            _dbContext.Brands.Update(brand);
-            _dbContext.SaveChanges();
-            return brand;
+            var result = _dbContext.Brands.FirstOrDefault(b => b.Id == brand.Id);
+            if (result != null)
+            {
+                _dbContext.Brands.Update(result);
+                _dbContext.SaveChanges();
+            }
+            return result;
         }
 
         public List<Brand> GetAllBrands()
