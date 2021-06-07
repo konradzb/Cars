@@ -26,8 +26,8 @@ namespace Cars.Model
             Type = type;
             Name = name;
             Power = power;
-            this.CarDriveId = fuelTypeId;
-            this.FuelTypeId = carDriveId;
+            this.CarDriveId = carDriveId;
+            this.FuelTypeId = fuelTypeId;
         }
     }
 }
