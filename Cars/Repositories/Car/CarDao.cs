@@ -38,10 +38,16 @@ namespace Cars.Repo
             var result = _dbContext.Cars.FirstOrDefault(c => c.Id == car.Id);
             if(result != null)
             {
-                _dbContext.Cars.Update(result);
+                result.Mileage = car.Mileage;
+                result.Color = car.Color;
+                result.ProductionDate = car.ProductionDate;
+                result.IsAvailable = car.IsAvailable;
+                result.PricePerDay = car.PricePerDay;
+                result.ModelId = car.ModelId;
                 _dbContext.SaveChanges();
+                return result;
             }
-            return result;
+            return null;
         }
 
         public List<Car> GetAllCars()

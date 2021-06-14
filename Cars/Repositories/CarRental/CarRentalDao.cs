@@ -38,10 +38,15 @@ namespace Cars.Repo
             var result = _dbContext.CarRentals.FirstOrDefault(c => c.Id == carRental.Id);
             if (result != null)
             {
-                _dbContext.CarRentals.Update(result);
+                result.RentalTimeStart = carRental.RentalTimeStart;
+                result.RentalTimeEnd = carRental.RentalTimeEnd;
+                result.Price = carRental.Price;
+                result.UserId = carRental.UserId;
+                result.CarId = carRental.CarId;
                 _dbContext.SaveChanges();
+                return result;
             }
-            return result;
+            return null;
         }
 
         public List<CarRental> GetAllCarRentals()

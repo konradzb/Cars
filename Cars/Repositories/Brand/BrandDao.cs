@@ -39,10 +39,15 @@ namespace Cars.Repo
             var result = _dbContext.Brands.FirstOrDefault(b => b.Id == brand.Id);
             if (result != null)
             {
-                _dbContext.Brands.Update(result);
+                result.Name = brand.Name;
+                result.Origin = brand.Origin;
+                result.Headquarter = brand.Headquarter;
+                result.EstablishmentDate = brand.EstablishmentDate;
+                result.Founder = brand.Founder;
                 _dbContext.SaveChanges();
+                return result;
             }
-            return result;
+            return null;
         }
 
         public List<Brand> GetAllBrands()

@@ -29,10 +29,16 @@ namespace Cars.Repositories
             var result = _dbcontext.Information_Users.FirstOrDefault(u => u.id == user.id);
             if (result != null)
             {
-                _dbcontext.Information_Users.Update(result);
+                result.name = user.name;
+                result.surname = user.surname;
+                result.dateOfBirth = user.dateOfBirth;
+                result.position = user.position;
+                result.email = user.email;
+                result.username = user.username;
                 _dbcontext.SaveChanges();
+                return result;
             }
-            return result;
+            return null;
         }
 
         public List<User> getAllUsers()

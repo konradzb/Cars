@@ -37,10 +37,16 @@ namespace Cars.Repo
             var result = _dbContext.Models.FirstOrDefault(c => c.Id == model.Id);
             if (result != null)
             {
-                _dbContext.Models.Update(result);
+                result.BrandId = model.BrandId;
+                result.Type = model.Type;
+                result.Name = model.Name;
+                result.Power = model.Power;
+                result.CarDriveId = model.CarDriveId;
+                result.FuelTypeId = model.FuelTypeId;
                 _dbContext.SaveChanges();
+                return result;
             }
-            return result;
+            return null;
         }
 
         public List<Model.Model> GetAllModels()
