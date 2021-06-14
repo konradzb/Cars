@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 //Car Rental model
 namespace Cars.Model
@@ -6,22 +7,23 @@ namespace Cars.Model
     public record CarRental
     {
         public int Id { get; init; }
-        public int ClientId { get; set; }
-        public int CarId { get; set; }
-        public int EmployeeId { get; set; }
         public DateTime RentalTimeStart { get; set; }
         public DateTime RentalTimeEnd { get; set; }
         public double Price { get; set; }
 
-        public CarRental(int id, int clientId, int carId, int employeeId, DateTime rentalTimeStart, DateTime rentalTimeEnd, double price)
+        public int UserId { get; set; }
+        public User User { get; set; }
+        public int CarId { get; set; }
+        public Car Car { get; set; }
+
+        public CarRental(int id,  DateTime rentalTimeStart, DateTime rentalTimeEnd, double price, int userId, int carId)
         {
             Id = id;
-            ClientId = clientId;
-            CarId = carId;
-            EmployeeId = employeeId;
             RentalTimeStart = rentalTimeStart;
             RentalTimeEnd = rentalTimeEnd;
             Price = price;
+            UserId = userId;
+            CarId = carId;
         }
     }
 }

@@ -15,6 +15,10 @@ namespace Cars.Configuration
         public virtual DbSet<Car> Cars { get; set; }
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<CarRental> CarRentals { get; set; }
+        public virtual DbSet<Model.Model> Models { get; set; }
+        public virtual DbSet<CarDrive> CarDrives { get; set; }
+        public virtual DbSet<FuelType> FuelTypes { get; set; }
+        public virtual DbSet<User> Information_Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

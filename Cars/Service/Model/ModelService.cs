@@ -56,8 +56,8 @@ namespace Cars.Service
                 Type = modelEditDto.Type,
                 Name = modelEditDto.Name,
                 Power = modelEditDto.Power,
-                IdFuelType = modelEditDto.IdFuelType,
-                IdCarDrive = modelEditDto.IdCarDrive
+                FuelTypeId = modelEditDto.IdFuelType,
+                CarDriveId = modelEditDto.IdCarDrive
             };
             return modelsDao.EditModelById(editModel).AsDto();
         }

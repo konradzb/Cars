@@ -9,6 +9,7 @@ namespace Cars.Model
     {
         public int id { get; init; }
         public string name { get; set; }
+        public List<Model> Models { get; set; }
 
         public FuelType(int id, string name)
         {

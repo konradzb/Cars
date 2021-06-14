@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cars.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210515133639_Add authentication our API")]
-    partial class AddauthenticationourAPI
+    [Migration("20210529195231_tables_names_changes")]
+    partial class tables_names_changes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,24 +54,40 @@ namespace Cars.Migrations
                     b.Property<string>("Color")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Generation")
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("IdFuelType")
-                        .HasColumnType("int");
-
                     b.Property<bool>("IsAvailable")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int>("Mileage")
                         .HasColumnType("int");
 
+                    b.Property<int>("ModelId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("PricePerDay")
+                        .HasColumnType("double");
+
                     b.Property<DateTime>("ProductionDate")
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ModelId");
+
                     b.ToTable("Cars");
+                });
+
+            modelBuilder.Entity("Cars.Model.CarDrive", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CarDrives");
                 });
 
             modelBuilder.Entity("Cars.Model.CarRental", b =>
@@ -83,12 +99,6 @@ namespace Cars.Migrations
                     b.Property<int>("CarId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ClientId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EmployeeId")
-                        .HasColumnType("int");
-
                     b.Property<double>("Price")
                         .HasColumnType("double");
 
@@ -98,9 +108,94 @@ namespace Cars.Migrations
                     b.Property<DateTime>("RentalTimeStart")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("CarId");
+
+                    b.HasIndex("UserId");
+
                     b.ToTable("CarRentals");
+                });
+
+            modelBuilder.Entity("Cars.Model.FuelType", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("name")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("id");
+
+                    b.ToTable("FuelTypes");
+                });
+
+            modelBuilder.Entity("Cars.Model.Model", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("BrandId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CarDriveId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FuelTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Power")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BrandId");
+
+                    b.HasIndex("CarDriveId");
+
+                    b.HasIndex("FuelTypeId");
+
+                    b.ToTable("Models");
+                });
+
+            modelBuilder.Entity("Cars.Model.User", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("dateOfBirth")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("email")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("name")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("position")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("surname")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("username")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Information_Users");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -295,6 +390,63 @@ namespace Cars.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Cars.Model.Car", b =>
+                {
+                    b.HasOne("Cars.Model.Model", "Model")
+                        .WithMany("Cars")
+                        .HasForeignKey("ModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Model");
+                });
+
+            modelBuilder.Entity("Cars.Model.CarRental", b =>
+                {
+                    b.HasOne("Cars.Model.Car", "Car")
+                        .WithMany("CarRentals")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Cars.Model.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Car");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Cars.Model.Model", b =>
+                {
+                    b.HasOne("Cars.Model.Brand", "Brand")
+                        .WithMany("Models")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Cars.Model.CarDrive", "CarDrive")
+                        .WithMany("Models")
+                        .HasForeignKey("CarDriveId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Cars.Model.FuelType", "FuelType")
+                        .WithMany("Models")
+                        .HasForeignKey("FuelTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Brand");
+
+                    b.Navigation("CarDrive");
+
+                    b.Navigation("FuelType");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -344,6 +496,31 @@ namespace Cars.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Cars.Model.Brand", b =>
+                {
+                    b.Navigation("Models");
+                });
+
+            modelBuilder.Entity("Cars.Model.Car", b =>
+                {
+                    b.Navigation("CarRentals");
+                });
+
+            modelBuilder.Entity("Cars.Model.CarDrive", b =>
+                {
+                    b.Navigation("Models");
+                });
+
+            modelBuilder.Entity("Cars.Model.FuelType", b =>
+                {
+                    b.Navigation("Models");
+                });
+
+            modelBuilder.Entity("Cars.Model.Model", b =>
+                {
+                    b.Navigation("Cars");
                 });
 #pragma warning restore 612, 618
         }

@@ -39,24 +39,23 @@ namespace Cars.Extensions
         {
             CarRentalDto item = new CarRentalDto(
                 carRental.Id,
-                carRental.ClientId,
-                carRental.CarId,
-                carRental.EmployeeId,
                 carRental.RentalTimeStart,
                 carRental.RentalTimeEnd,
-                carRental.Price
+                carRental.Price,
+                carRental.UserId,
+                carRental.CarId
             );
             return item;
         }
-        public static EmployeeDto AsDto(this Employee employee)
+        public static UserDto AsDto(this User user)
         {
-            return new EmployeeDto
+            return new UserDto
             {
-                id = employee.id,
-                name = employee.name,
-                surname = employee.surname,
-                dateOfBirth = employee.dateOfBirth,
-                position = employee.position
+                id = user.id,
+                name = user.name,
+                surname = user.surname,
+                dateOfBirth = user.dateOfBirth,
+                position = user.position
             };
         }
         public static FuelTypeDto AsDto(this FuelType fuel)
@@ -75,8 +74,8 @@ namespace Cars.Extensions
                 model.Type,
                 model.Name,
                 model.Power,
-                model.IdFuelType,
-                model.IdCarDrive
+                model.FuelTypeId,
+                model.CarDriveId
            );
             return item;
         }

@@ -19,10 +19,10 @@ namespace Cars.Dtos
         [Range(0, 20000)]
         public int Power { get; set; }
         [Required]
-        [Range(0, 3)]
+        [Range(0, 5)]
         public int IdFuelType { get; set; }
         [Required]
-        [Range(0, 3)]
+        [Range(0, 5)]
         public int IdCarDrive { get; set; }
 
         public ModelEditDto(int brandId, string type, string name, int power, int idFuelType, int idCarDrive)

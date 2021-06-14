@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cars.DTOs
 {
-    public record EmployeeInputDto
+    public record UserInputDto
     {
         [Required]
         public int id { get; set; }

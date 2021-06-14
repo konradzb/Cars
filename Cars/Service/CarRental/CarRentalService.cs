@@ -42,12 +42,11 @@ namespace Cars.Service
             // this argument will be generated automatically
             CarRental carRental = new CarRental (
                 0,  //id
-                carRentalInput.ClientId,
-                carRentalInput.CarId,
-                carRentalInput.EmployeeId,
                 carRentalInput.RentalTimeStart,
                 carRentalInput.RentalTimeEnd,
-                carRentalInput.Price
+                carRentalInput.Price,
+                carRentalInput.UserId,
+                carRentalInput.CarId
             );
             return carRentalDao.AddCarRental(carRental).AsDto();
         }
@@ -73,12 +72,12 @@ namespace Cars.Service
 
             CarRental editedCarRental = carRentalToEdit with
             {
-                ClientId = carRentalEdit.ClientId,
-                CarId = carRentalEdit.CarId,
-                EmployeeId = carRentalEdit.EmployeeId,
                 RentalTimeStart = carRentalEdit.RentalTimeStart,
                 RentalTimeEnd = carRentalEdit.RentalTimeEnd,
-                Price = carRentalEdit.Price
+                Price = carRentalEdit.Price,
+                UserId = carRentalEdit.UserId,
+                CarId = carRentalEdit.CarId
+              
             };
 
             return carRentalDao.EditCarRentalById(editedCarRental).AsDto();

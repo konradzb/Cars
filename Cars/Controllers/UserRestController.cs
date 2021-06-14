@@ -15,24 +15,24 @@ namespace Cars.Controllers
 {
     [ApiController]
     [Route("employee")]
-    public class EmployeeRestController : ControllerBase
+    public class UserRestController : ControllerBase
     {
-        private readonly IEmployeeService employeeService;
-        public EmployeeRestController(IEmployeeService employeeService)
+        private readonly IUserService userService;
+        public UserRestController(IUserService userService)
         {
-            this.employeeService = employeeService;
+            this.userService = userService;
         }
         
         [HttpGet]
-        public IEnumerable<EmployeeDto> GetStaff()
+        public IEnumerable<UserDto> GetStaff()
         {
-            return employeeService.GetStaff();
+            return userService.GetStaff();
         }
 
         [HttpGet("{id}")]
-        public ActionResult<EmployeeDto> GetEmployee(int id)
+        public ActionResult<UserDto> GetUser(int id)
         {
-            var employee = employeeService.GetEmployee(id);   
+            var employee = userService.GetUser(id);   
             if (employee is null)
                 return NotFound();
             
@@ -40,19 +40,19 @@ namespace Cars.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult<EmployeeDto> UpdateItem(int id, EmployeeEditDto employeeDto)
+        public ActionResult<UserDto> UpdateUser(int id, UserEditDto userDto)
         {
 
-            var employee = employeeService.UpdateItem(id, employeeDto);
+            var employee = userService.UpdateUser(id, userDto);
             if (employee == null)
                 return null;
 
             return employee;
         }
         [HttpDelete("{id}")]
-        public ActionResult<bool> DeleteItem(int id)
+        public ActionResult<bool> DeleteUser(int id)
         {
-            return employeeService.DeleteItem(id);
+            return userService.DeleteUser(id);
         }
     }
 }

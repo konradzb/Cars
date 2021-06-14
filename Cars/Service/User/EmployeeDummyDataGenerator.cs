@@ -18,11 +18,11 @@ namespace Cars.Service
         private List<string> positions = new List<string> { "Menedżer", "Pracownik", "Kierowca" };
 
 
-        public void fakeEmployeeGenerator(ref List<Model.Employee> staff, int numberOfObjectsTocreate)
+        public void fakeEmployeeGenerator(ref List<Model.User> staff, int numberOfObjectsTocreate)
         {
             for(int i=0;i<numberOfObjectsTocreate;i++)
             {
-                staff.Add(new Model.Employee(i, this.names[randomIntNumber()], this.surnames[randomIntNumber()], dateOfBirth, this.positions[randomIntNumber()],"mail@op.pl","$ss","mail"));
+                staff.Add(new Model.User(i, this.names[randomIntNumber()], this.surnames[randomIntNumber()], dateOfBirth, this.positions[randomIntNumber()],"mail@op.pl","mail"));
             }
         }
 

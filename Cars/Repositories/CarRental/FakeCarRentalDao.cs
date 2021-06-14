@@ -13,9 +13,9 @@ namespace Cars.Repo
         private List<CarRental> carRentals = new();
         public FakeCarRentalDao()
         {
-            carRentals.Add(new CarRental(1, 1, 1, 1, new DateTime(2020, 6, 27), new DateTime(2020, 6, 30), 379.99));
-            carRentals.Add(new CarRental(2, 2, 2, 2, new DateTime(2021, 1, 1), new DateTime(2021, 2, 1), 4579.99));
-            carRentals.Add(new CarRental(3, 3, 3, 3, new DateTime(2021, 3, 17), new DateTime(2020, 4, 2), 1699.99));
+            carRentals.Add(new CarRental(1, new DateTime(2020, 6, 27), new DateTime(2020, 6, 30), 379.99, 1, 1));
+            carRentals.Add(new CarRental(2, new DateTime(2021, 1, 1), new DateTime(2021, 2, 1), 4579.99, 2, 2));
+            carRentals.Add(new CarRental(3, new DateTime(2021, 3, 17), new DateTime(2020, 4, 2), 1699.99, 3, 3));
         }
 
         public List<CarRental> GetAllCarRentals()

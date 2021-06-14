@@ -24,23 +24,23 @@ namespace Cars.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly JwtConfig _jwtConfig;
-        private readonly IEmployeeService _employeeService;
+        private readonly IUserService _userService;
 
-        public AuthManagementController(UserManager<IdentityUser> userManager, IOptionsMonitor<JwtConfig> option, IEmployeeService employeeService)
+        public AuthManagementController(UserManager<IdentityUser> userManager, IOptionsMonitor<JwtConfig> option, IUserService userService)
         {
             _userManager = userManager;
             _jwtConfig = option.CurrentValue;
-            _employeeService = employeeService;
+            _userService = userService;
         }
          
         [HttpPost]
         [Route("Register")]
-        public async Task<IActionResult> Register([FromBody] EmployeeInputDto employeeDto)
+        public async Task<IActionResult> Register([FromBody] UserInputDto userDto)
         {
             
             if (ModelState.IsValid)
             {
-                var ifUserExisting = await _userManager.FindByEmailAsync(employeeDto.email);
+                var ifUserExisting = await _userManager.FindByEmailAsync(userDto.email);
                 if(ifUserExisting != null)
                 {
                     return BadRequest(new RegistrationResponse()
@@ -52,11 +52,11 @@ namespace Cars.Controllers
                         Success = false
                     });
                 }
-                var newUser = new IdentityUser() { Email = employeeDto.email, UserName = employeeDto.username };
-                var isCreated = await _userManager.CreateAsync(newUser, employeeDto.password);
+                var newUser = new IdentityUser() { Email = userDto.email, UserName = userDto.username };
+                var isCreated = await _userManager.CreateAsync(newUser, userDto.password);
                 if(isCreated.Succeeded)
                 {
-                    _employeeService.CreateEmployee(employeeDto);
+                    _userService.CreateUser(userDto);
                     var jwtToken = this.GenerateJwtToken(newUser);
                     return Ok(new RegistrationResponse()
                     {
