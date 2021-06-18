@@ -54,5 +54,12 @@ namespace Cars.Controllers
         {
             return userService.DeleteUser(id);
         }
+
+        [HttpPost]
+        public ActionResult<ModelDto> CreateUser(UserInputDto userInput)
+        {
+            UserDto user = userService.CreateUser(userInput);
+            return CreatedAtAction(nameof(GetUser), new { id = user.id }, user);
+        }
     }
 }

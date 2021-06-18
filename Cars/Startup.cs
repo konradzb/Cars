@@ -40,26 +40,26 @@ namespace Cars
         {
             services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
             services.AddDbContext<ApplicationDbContext>();
-            services.AddSingleton<ICarService, CarService>();
-            services.AddSingleton<ICarDao, FakeCarDao>();
+            services.AddScoped<ICarService, CarService>();
+            services.AddScoped<ICarDao, CarDao>();
 
-            services.AddSingleton<IBrandService, BrandService>();
-            services.AddSingleton<IBrandDao, FakeBrandDao>();
+            services.AddScoped<IBrandService, BrandService>();
+            services.AddScoped<IBrandDao, BrandDao>();
 
-            services.AddSingleton<ICarRentalService, CarRentalService>();
-            services.AddSingleton<ICarRentalDao, FakeCarRentalDao>();
+            services.AddScoped<ICarRentalService, CarRentalService>();
+            services.AddScoped<ICarRentalDao, CarRentalDao>();
 
-            services.AddSingleton<IModelService, ModelService>();
-            services.AddSingleton<IModelDao, FakeModelDao>();
+            services.AddScoped<IModelService, ModelService>();
+            services.AddScoped<IModelDao, ModelDao>();
 
-            services.AddSingleton<IUserService, UserService>();
-            services.AddSingleton<IUserDao, FakeUserDao>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserDao, UserDao>();
 
-            services.AddSingleton<ICarDriveService, CarDriveService>();
-            services.AddSingleton<ICarDriveDao, FakeCarDriveDao>();
+            services.AddScoped<ICarDriveService, CarDriveService>();
+            services.AddScoped<ICarDriveDao, CarDriveDao>();
 
-            services.AddSingleton<IFuelTypeService, FuelTypeService>();
-            services.AddSingleton<IFuelTypeDao, FakeFuelTypeDao>();
+            services.AddScoped<IFuelTypeService, FuelTypeService>();
+            services.AddScoped<IFuelTypeDao, FuelTypeDao>();
 
 
             services.AddAuthentication(options => {
