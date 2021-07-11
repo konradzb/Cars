@@ -33,6 +33,11 @@ namespace Cars.Repositories
             return this.staff;
         }
 
+        public User getUserByEmail(string email)
+        {
+            return this.staff.Find(item => item.email == email);
+        }
+
         public User getUserById(int id)
         {
             return this.staff.Find(item => item.id == id);

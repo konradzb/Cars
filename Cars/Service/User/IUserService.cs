@@ -14,5 +14,6 @@ namespace Cars.Service.Employee
         ActionResult<UserDto> GetUser(int id);
         IEnumerable<UserDto> GetStaff();
         ActionResult<UserDto> UpdateUser(int id, UserEditDto userDto);
+        ActionResult<UserDto> GetUserByEmail(string email);
     }
 }
