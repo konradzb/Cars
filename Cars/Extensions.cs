@@ -55,7 +55,9 @@ namespace Cars.Extensions
                 name = user.name,
                 surname = user.surname,
                 dateOfBirth = user.dateOfBirth,
-                position = user.position
+                position = user.position,
+                email = user.email,
+                username = user.username
             };
         }
         public static FuelTypeDto AsDto(this FuelType fuel)

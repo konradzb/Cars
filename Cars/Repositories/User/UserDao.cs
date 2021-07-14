@@ -67,5 +67,9 @@ namespace Cars.Repositories
         {
             return getAllUsers().Count;
         }
+        public User getUserByEmail(string email)
+        {
+            return _dbcontext.Information_Users.FirstOrDefault(u => u.email == email);
+        }
     }
 }
