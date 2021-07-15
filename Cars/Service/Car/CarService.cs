@@ -92,5 +92,11 @@ namespace Cars.Service
         {
             return carsDao.GetComplexCarsObject(pageIndex);
         }
+
+
+        public IEnumerable<string> GetAllColors()
+        {
+            return carsDao.GetAllColors();
+        }
     }
 }

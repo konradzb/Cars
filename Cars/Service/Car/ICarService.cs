@@ -16,5 +16,6 @@ namespace Cars.Service
         IEnumerable<CarDto> GetAllCars();
         ActionResult<CarDto> GetCarById(int id);
         IEnumerable<ComplexCar> GetComplexCarsObejct(int pageIndex);
+        IEnumerable<string> GetAllColors();
     }
 }

@@ -74,10 +74,16 @@ namespace Cars.Controllers
 		}
 
 		[HttpGet("complex/{pageIndex}")]
-		public IEnumerable<Object> GetComplexCarsObejct(int pageIndex)
+		public IEnumerable<ComplexCar> GetComplexCarsObejct(int pageIndex)
 		{
 			return CarService.GetComplexCarsObejct(pageIndex);
 		}
+
+		[HttpGet("colors")]
+		public IEnumerable<String> GetAllColors()
+        {
+			return CarService.GetAllColors();
+        }
 
 	}
 }

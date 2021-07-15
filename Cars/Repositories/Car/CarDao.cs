@@ -60,6 +60,22 @@ namespace Cars.Repo
             return _dbContext.Cars.Where(c => c.Id == id).FirstOrDefault();
         }
 
+        public List<string> GetAllColors()
+        {
+            var items = (from c in _dbContext.Cars
+                         select new
+                         {
+                             Color = c.Color
+                         }).Distinct().ToList();
+            List<string> list = new List<string>();
+            for(int i = 0; i < items.Count(); i++)
+            {
+                list.Add(items[i].Color);
+            }
+
+            return list;
+        }
+
         public List<ComplexCar> GetComplexCarsObject(int pageIndex)
         {
             int carsPerPage = 5;

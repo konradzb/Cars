@@ -53,5 +53,10 @@ namespace Cars.Repo
         {
             throw new NotImplementedException();
         }
+
+        public List<string> GetAllColors()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
