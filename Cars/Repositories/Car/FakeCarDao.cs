@@ -48,5 +48,20 @@ namespace Cars.Repo
             cars[index] = car;
             return car;
         }
+
+        public List<ComplexCar> GetComplexCarsObject(int pageIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> GetAllColors()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<ComplexCar> GetComplexCarsWithParms(string brand, string color, string carDrive, string fuelType, int pageIndex)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

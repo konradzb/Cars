@@ -87,5 +87,21 @@ namespace Cars.Service
 
             return carsDao.EditCarById(editedCar).AsDto();
         }
+
+        public IEnumerable<ComplexCar> GetComplexCarsObejct(int pageIndex)
+        {
+            return carsDao.GetComplexCarsObject(pageIndex);
+        }
+
+
+        public IEnumerable<string> GetAllColors()
+        {
+            return carsDao.GetAllColors();
+        }
+
+        public IEnumerable<ComplexCar> GetComplexCarsWithParms(string brand, string color, string carDrive, string fuelType, int pageIndex)
+        {
+            return carsDao.GetComplexCarsWithParms(brand, color, carDrive, fuelType, pageIndex);
+        }
     }
 }

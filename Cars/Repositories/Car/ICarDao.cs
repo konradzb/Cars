@@ -14,5 +14,8 @@ namespace Cars.Repo
         Car AddCar(Car car);
         Car EditCarById(Car car);
         bool DeleteCarById(int id);
+        List<ComplexCar> GetComplexCarsObject(int pageIndex);
+        List<string> GetAllColors();
+        List<ComplexCar> GetComplexCarsWithParms(string brand, string color, string carDrive, string fuelType, int pageIndex);
     }
 }

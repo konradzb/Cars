@@ -23,7 +23,7 @@ namespace Cars.Model
         {
             Id = id;
             BrandId = brandId;
-            Type = type;
+            Type = type; 
             Name = name;
             Power = power;
             this.CarDriveId = carDriveId;

@@ -72,5 +72,23 @@ namespace Cars.Controllers
 
 			return car;
 		}
+
+		[HttpGet("complex/{pageIndex}")]
+		public IEnumerable<ComplexCar> GetComplexCarsObejct(int pageIndex)
+		{
+			return CarService.GetComplexCarsObejct(pageIndex);
+		}
+
+		[HttpGet("colors")]
+		public IEnumerable<String> GetAllColors()
+        {
+			return CarService.GetAllColors();
+        }
+
+		[HttpGet("{brand}/{color}/{carDrive}/{fuelType}/{pageIndex}")]
+		public IEnumerable<ComplexCar> GetComplexCarsWithParms(string brand, string color, string carDrive, string fuelType, int pageIndex)
+		{
+			return CarService.GetComplexCarsWithParms(brand, color, carDrive, fuelType, pageIndex);
+		}
 	}
 }
