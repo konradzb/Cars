@@ -14,5 +14,6 @@ namespace Cars.Repo
         Car AddCar(Car car);
         Car EditCarById(Car car);
         bool DeleteCarById(int id);
+        List<ComplexCar> GetComplexCarsObject(int pageIndex);
     }
 }

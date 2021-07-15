@@ -48,5 +48,10 @@ namespace Cars.Repo
             cars[index] = car;
             return car;
         }
+
+        public List<ComplexCar> GetComplexCarsObject(int pageIndex)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

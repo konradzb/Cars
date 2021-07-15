@@ -59,5 +59,65 @@ namespace Cars.Repo
         {
             return _dbContext.Cars.Where(c => c.Id == id).FirstOrDefault();
         }
+
+        public List<ComplexCar> GetComplexCarsObject(int pageIndex)
+        {
+            var items = (from c in _dbContext.Cars
+                              join m in _dbContext.Models on c.ModelId equals m.Id
+                              join b in _dbContext.Brands on m.BrandId equals b.Id
+                              join cd in _dbContext.CarDrives on m.CarDriveId equals cd.Id
+                              join ft in _dbContext.FuelTypes on m.FuelTypeId equals ft.id
+                              where c.ModelId == m.Id
+                              select new
+                              {
+                                  Id = c.Id,
+                                  ModelType = m.Type,
+                                  ModelName = m.Name,
+                                  Brand = b.Name,
+                                  Mileage = c.Mileage,
+                                  Color = c.Color,
+                                  ProductionDate = c.ProductionDate,
+                                  IsAvailable = c.IsAvailable,
+                                  PricePerDay = c.PricePerDay,
+                                  FuelType = ft.name,
+                                  CarDrive = cd.Name,
+                              }).ToList();
+
+            int length = items.Count();
+            List<ComplexCar> list = new List<ComplexCar>();
+
+            for (int i = 0; i < length; i++)
+            {
+                ComplexCar complexCar = new ComplexCar(
+                        items[i].Id,
+                        items[i].ModelType,
+                        items[i].ModelName,
+                        items[i].Brand,
+                        items[i].Mileage,
+                        items[i].Color,
+                        items[i].ProductionDate,
+                        items[i].IsAvailable,
+                        items[i].PricePerDay,
+                        items[i].FuelType,
+                        items[i].CarDrive
+                    );
+
+                list.Add(complexCar);
+            }
+
+            int carsPerPage = 5;
+            int carIndex = carsPerPage * pageIndex;
+
+            if (length <= carIndex)
+            {
+                return null;
+            }
+            else if (length < carIndex + carsPerPage)
+            {
+                carsPerPage = length - carIndex;
+            }
+
+            return list.GetRange(carIndex, carsPerPage);
+        }
     }
 }

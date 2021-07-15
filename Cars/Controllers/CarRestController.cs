@@ -72,5 +72,12 @@ namespace Cars.Controllers
 
 			return car;
 		}
+
+		[HttpGet("complex/{pageIndex}")]
+		public IEnumerable<Object> GetComplexCarsObejct(int pageIndex)
+		{
+			return CarService.GetComplexCarsObejct(pageIndex);
+		}
+
 	}
 }

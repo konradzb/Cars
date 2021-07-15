@@ -15,5 +15,6 @@ namespace Cars.Service
         ActionResult<CarDto> EditCarById(int id, CarEditDto carEdit);
         IEnumerable<CarDto> GetAllCars();
         ActionResult<CarDto> GetCarById(int id);
+        IEnumerable<ComplexCar> GetComplexCarsObejct(int pageIndex);
     }
 }
