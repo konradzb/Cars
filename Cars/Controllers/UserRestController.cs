@@ -38,6 +38,15 @@ namespace Cars.Controllers
             
             return employee;
         }
+        [HttpGet("email/{email}")]
+        public ActionResult<UserDto> GetUserByEmail(string email)
+        {
+            var employee = userService.GetUserByEmail(email);
+            if (employee is null)
+                return NotFound();
+
+            return employee;
+        }
 
         [HttpPut("{id}")]
         public ActionResult<UserDto> UpdateUser(int id, UserEditDto userDto)

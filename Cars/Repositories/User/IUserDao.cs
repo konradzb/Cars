@@ -15,5 +15,7 @@ namespace Cars.Repositories
         User editUserById(User user);
         int usersLength();
 
+        User getUserByEmail(string email);
+
     }
 }

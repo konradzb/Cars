@@ -58,10 +58,12 @@ namespace Cars.Controllers
                 {
                     _userService.CreateUser(userDto);
                     var jwtToken = this.GenerateJwtToken(newUser);
+                    var user = _userService.GetUserByEmail(userDto.email);
                     return Ok(new RegistrationResponse()
                     {
                         Success=true,
-                        Token=jwtToken
+                        Token=jwtToken,
+                        User=user
                     }); 
                 } else
                 {
@@ -118,10 +120,12 @@ namespace Cars.Controllers
                     return BadRequest();
                 }
                 var jwtToken = GenerateJwtToken(existingUser);
+                var userDetails = _userService.GetUserByEmail(user.email);
                 return Ok(new RegistrationResponse()
                 {
                     Success = true,
-                    Token = jwtToken
+                    Token = jwtToken,
+                    User = userDetails
                 });
             }
             return BadRequest(new RegistrationResponse()

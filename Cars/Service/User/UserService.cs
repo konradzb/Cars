@@ -39,6 +39,13 @@ namespace Cars.Service.Employee
 
             return employee.AsDto();
         }
+        public ActionResult<UserDto> GetUserByEmail(string email)
+        {
+            var user = userDao.getUserByEmail(email);
+            if (user is null)
+                return null;
+            return user.AsDto();
+        }
 
         public IEnumerable<UserDto> GetStaff()
         {
