@@ -62,6 +62,8 @@ namespace Cars.Repo
 
         public List<ComplexCar> GetComplexCarsObject(int pageIndex)
         {
+            int carsPerPage = 5;
+            int carIndex = carsPerPage * pageIndex;
             var items = (from c in _dbContext.Cars
                               join m in _dbContext.Models on c.ModelId equals m.Id
                               join b in _dbContext.Brands on m.BrandId equals b.Id
@@ -81,7 +83,7 @@ namespace Cars.Repo
                                   PricePerDay = c.PricePerDay,
                                   FuelType = ft.name,
                                   CarDrive = cd.Name,
-                              }).ToList();
+                              }).Skip(carIndex).Take(carsPerPage).ToList();
 
             int length = items.Count();
             List<ComplexCar> list = new List<ComplexCar>();
@@ -105,19 +107,7 @@ namespace Cars.Repo
                 list.Add(complexCar);
             }
 
-            int carsPerPage = 5;
-            int carIndex = carsPerPage * pageIndex;
-
-            if (length <= carIndex)
-            {
-                return null;
-            }
-            else if (length < carIndex + carsPerPage)
-            {
-                carsPerPage = length - carIndex;
-            }
-
-            return list.GetRange(carIndex, carsPerPage);
+            return list;
         }
     }
 }
