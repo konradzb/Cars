@@ -17,8 +17,9 @@ namespace Cars.Model
         public double PricePerDay { get; set; }
         public string FuelType { get; set; }
         public string CarDrive { get; set; }
+        public int Power { get; set; }
 
-        public ComplexCar(int id, string modelType, string modelName, string brand, int mileage, string color, DateTime productionDate, bool isAvailable, double pricePerDay, string fuelType, string carDrive)
+        public ComplexCar(int id, string modelType, string modelName, string brand, int mileage, string color, DateTime productionDate, bool isAvailable, double pricePerDay, string fuelType, string carDrive, int power)
         {
             Id = id;
             ModelType = modelType;
@@ -31,6 +32,7 @@ namespace Cars.Model
             PricePerDay = pricePerDay;
             FuelType = fuelType;
             CarDrive = carDrive;
+            Power = power;
         }
     }
 }

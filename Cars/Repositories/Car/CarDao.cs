@@ -83,6 +83,7 @@ namespace Cars.Repo
                                   PricePerDay = c.PricePerDay,
                                   FuelType = ft.name,
                                   CarDrive = cd.Name,
+                                  Power = m.Power
                               }).Skip(carIndex).Take(carsPerPage).ToList();
 
             int length = items.Count();
@@ -101,7 +102,8 @@ namespace Cars.Repo
                         items[i].IsAvailable,
                         items[i].PricePerDay,
                         items[i].FuelType,
-                        items[i].CarDrive
+                        items[i].CarDrive,
+                        items[i].Power
                     );
 
                 list.Add(complexCar);
