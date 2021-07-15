@@ -98,5 +98,10 @@ namespace Cars.Service
         {
             return carsDao.GetAllColors();
         }
+
+        public IEnumerable<ComplexCar> GetComplexCarsWithParms(string brand, string color, string carDrive, string fuelType, int pageIndex)
+        {
+            return carsDao.GetComplexCarsWithParms(brand, color, carDrive, fuelType, pageIndex);
+        }
     }
 }

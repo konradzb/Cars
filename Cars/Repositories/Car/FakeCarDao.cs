@@ -58,5 +58,10 @@ namespace Cars.Repo
         {
             throw new NotImplementedException();
         }
+
+        public List<ComplexCar> GetComplexCarsWithParms(string brand, string color, string carDrive, string fuelType, int pageIndex)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
